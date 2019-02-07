@@ -1,0 +1,156 @@
+/***********/
+/* General *
+/***********/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html, body {
+    box-sizing: border-box;
+}
+
+/********/
+/* Pads *
+/********/
+.pads {
+    cursor: pointer;
+}
+
+.pads__top-left {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 250px 0 0 0;
+    top: 0%;
+    left: 0%;
+    background: darkgreen;
+}
+
+.pads__top-right {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 0 250px 0 0;
+    top: 0%;
+    right: 0%;
+    background: darkred;
+}
+
+.pads__bottom-left {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 0 0 0 250px;
+    bottom: 0%;
+    left: 0%;
+    background: goldenrod;
+}
+
+.pads__bottom-right {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 0 0 250px 0;
+    bottom: 0%;
+    right: 0%;
+    background: darkblue;
+}
+
+/************/
+/* Controls *
+/************/
+.outer-board {
+    background: gray;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    margin: 30px auto;
+}
+
+.inner-board {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    transform: translateX(-50%);
+}
+
+.start__btn {
+    background-color: orangered;
+    width: 15px;
+    height: 15px;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.count {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.count__screen {
+    background-color: orangered;
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+}
+
+.mode {
+    position: absolute;
+    top: 40%;
+    left: 75%;
+    transform: translateX(-50%);
+}
+
+#mode__btn {
+    background-color: orangered;
+    width: 15px;
+    height: 15px;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.power {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#power__switch {
+    background-color: orangered;
+    width: 15px;
+    height: 15px;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}

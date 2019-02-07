@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./simon.css">
+
+        <title>Simon Game</title>
+    </head>
+    <body>
+        <div class="outer-board">
+            <div class="pads">
+                <div class="pads__top-left"></div>
+                <div class="pads__top-right"></div>
+                <div class="pads__bottom-left"></div>
+                <div class="pads__bottom-right"></div>
+            </div>
+
+            <div class="inner-board">
+                <div class="title">NOWIS</div>
+                <div class="start">
+                    <button class="start__btn"></button>
+                    <div class="start__label">Start</div>
+                </div>
+                <div class="count">
+                    <div class="count__screen"></div>
+                    <div class="count__label">Count</div>
+                </div>
+                <div class="mode">
+                    <input type="checkbox" id="mode__btn">
+                    <label for="mode__btn" class="mode__label">Strict</label>
+                </div>
+                <div class="power">
+                    <input type="checkbox" id="power__switch">
+                    <label for="power__switch" class="power__label">On</label>
+                </div>
+            </div>
+        </div>
+
+        <script src="./simon.js"></script>
+    </body>
+</html>
