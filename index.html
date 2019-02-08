@@ -19,21 +19,31 @@
 
             <div class="inner-board">
                 <div class="title">NOWIS</div>
+                
                 <div class="start">
                     <button class="start__btn"></button>
                     <div class="start__label">Start</div>
                 </div>
+
                 <div class="count">
                     <div class="count__screen"></div>
                     <div class="count__label">Count</div>
                 </div>
+
                 <div class="mode">
-                    <input type="checkbox" id="mode__btn">
-                    <label for="mode__btn" class="mode__label">Strict</label>
+                    <label for="mode__switch" class="toggle">
+                        <input type="checkbox" id="mode__switch">
+                        <span class="slider"></span>
+                        <span class="mode__label">Strict</span>
+                    </label>
                 </div>
+
                 <div class="power">
-                    <input type="checkbox" id="power__switch">
-                    <label for="power__switch" class="power__label">On</label>
+                    <label for="power__switch" class="toggle">
+                        <input type="checkbox" id="power__switch">
+                        <span class="slider"></span>
+                        <span class="power__label">Power</span>
+                    </label>
                 </div>
             </div>
         </div>

@@ -53,23 +53,47 @@ startButton.addEventListener('click', (e) => {
 });
 
 greenPad.addEventListener('click', (e) => {
-    playerOrder.push(1);
-    check();
+    if (playerInputAllowed) {
+        playerOrder.push(1);
+        lightPad('greenPad', 'lightgreen');
+        check();
+        setTimeout(() => {
+            clearPads();
+        }, 200);
+    }
 })
 
 redPad.addEventListener('click', (e) => {
-    playerOrder.push(2);
-    check();
+    if (playerInputAllowed) {
+        playerOrder.push(2);
+        lightPad('redPad', 'tomato');
+        check();
+        setTimeout(() => {
+            clearPads();
+        }, 200);
+    }
 })
 
 yellowPad.addEventListener('click', (e) => {
-    playerOrder.push(3);
-    check();
+    if (playerInputAllowed) {
+        playerOrder.push(3);
+        lightPad('yellowPad', 'yellow');
+        check();
+        setTimeout(() => {
+            clearPads();
+        }, 200);
+    }
 })
 
 bluePad.addEventListener('click', (e) => {
-    playerOrder.push(4);
-    check();
+    if (playerInputAllowed) {
+        playerOrder.push(4);
+        lightPad('bluePad', 'lightskyblue');
+        check();
+        setTimeout(() => {
+            clearPads();
+        }, 200);
+    }
 })
 
 
@@ -85,13 +109,30 @@ function gameRound() {
 
     // Computer's Turn
     if (compTurn) {
-        console.log('Computer flashes: ', compOrder[flashNumber]);
+        // console.log('Computer flashes: ', compOrder[flashNumber]);
+        switch (compOrder[flashNumber]) {
+            case 1:
+                lightPad('greenPad', 'lightgreen');
+                break;
+            case 2:
+                lightPad('redPad', 'tomato');
+                break;
+            case 3:
+                lightPad('yellowPad', 'yellow');
+                break;
+            case 4:
+                lightPad('bluePad', 'lightskyblue');
+        }
         flashNumber++;
+        setTimeout(() => {
+            clearPads();
+        }, 300);
     }
 
     // Player's Turn
     if (flashNumber == round) {
         clearInterval(intervalId);
+        // clearPads();
         compTurn = false;
         playerInputAllowed = true;
     }
@@ -108,6 +149,10 @@ function check() {
     // if current guess is correct and end of game, YOU WIN!
     else if (playerOrder.length == compOrder.length) {
         console.log('YOU WIN!');
+        win = true;
+        playerInputAllowed = false;
+        flashPads();
+        // alert('YOU WIN!');
     }
     // if current guess is correct, not end of game, and last guess of round
     else if (round == playerOrder.length) {
@@ -115,6 +160,24 @@ function check() {
         round++;
         reset();
     }
+}
+
+function lightPad(selector, color) {
+    eval(selector).style.backgroundColor = color;
+}
+
+function flashPads() {
+    lightPad('greenPad', 'lightgreen');
+    lightPad('redPad', 'tomato');
+    lightPad('yellowPad', 'yellow');
+    lightPad('bluePad', 'lightskyblue');
+}
+
+function clearPads() {
+    lightPad('greenPad', 'darkgreen');
+    lightPad('redPad', 'darkred');
+    lightPad('yellowPad', 'goldenrod');
+    lightPad('bluePad', 'darkblue');
 }
 
 function init() {
