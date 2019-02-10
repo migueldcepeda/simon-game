@@ -120,19 +120,29 @@ html, body {
 }
 
 .start__btn {
-    background-color: orangered;
-    width: 15px;
-    height: 15px;
+    background-color: #2196F3;
+    width: 18px;
+    height: 18px;
     border: none;
     display: block;
     margin: 0 auto;
     cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #36383F;
+}
+
+.start__btn:focus {
+    outline: none;
+}
+
+.start__btn:active {
+    transform: translateY(1px);
 }
 
 .start__label {
     position: absolute;
     top: 35px;
-    left: 0;
+    left: -6px;
 }
 
 .count {
@@ -156,7 +166,7 @@ html, body {
 .count__label {
     position: absolute;
     top: 47px;
-    left: 0;
+    left: 5px;
 }
 
 .round {
@@ -200,6 +210,12 @@ html, body {
     bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.power__label {
+    display: block;
+    margin-top: 20px;
+    transform: translateX(-3px);
 }
 
 /* #power__switch {
@@ -252,16 +268,14 @@ html, body {
     transition: .4s;
 }
 
-input:checked + .slider {
+input#mode__switch:checked + .slider {
     background-color: #2196F3;
+}
+
+input#power__switch:checked + .slider {
+    background-color: #4CAF50;
 }
 
 input:checked + .slider:before {
     transform: translate(16px);
-}
-
-.power__label {
-    display: block;
-    margin-top: 20px;
-    transform: translateX(-3px);
 }

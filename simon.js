@@ -27,17 +27,19 @@ let audioBlue = document.getElementById('blueClip');
 const startButton = document.querySelector('.start__btn');
 const strictButton = document.getElementById('mode__switch');
 const powerSwitch = document.getElementById('power__switch');
-const countScreen = document.querySelector('.count__screen')
+const countScreen = document.querySelector('.count__screen> .round')
 
 
 // EVENT LISTENERS
 powerSwitch.addEventListener('click', (e) => {
     if (powerSwitch.checked) {
         powerOn = true;
+        countScreen.innerHTML = '-';
         console.log('Power On');
     }
     else {
         powerOn = false;
+        countScreen.innerHTML = '';
         console.log('Power Off');
     }
 });
@@ -131,7 +133,7 @@ function gameRound() {
         flashNumber++;
         setTimeout(() => {
             clearPads();
-        }, 300);
+        }, 200);
     }
 
     // Player's Turn
@@ -148,22 +150,28 @@ function check() {
     let currGuess = playerOrder.length - 1;
     // check if current guess is incorrect
     if (playerOrder[currGuess] !== compOrder[currGuess]){
-        console.log('That was incorrect');
-        strict ? runGame() : reset();
+        countScreen.innerHTML = "NO!";
+        setTimeout(() => {
+            flashPads();
+            strict ? runGame() : reset();
+        }, 500);
     }
     // if current guess is correct and end of game, YOU WIN!
     else if (playerOrder.length == compOrder.length) {
-        console.log('YOU WIN!');
+        countScreen.innerHTML = 'WIN!'
         win = true;
         playerInputAllowed = false;
-        flashPads();
-        // alert('YOU WIN!');
+        setTimeout(() => flashPads(), 500);
+
     }
     // if current guess is correct, not end of game, and last guess of round
     else if (round == playerOrder.length) {
         console.log("That's right!");
-        round++;
-        reset();
+        setTimeout(() => {
+            round++;
+            countScreen.innerHTML = round;
+            reset();
+        }, 500);
     }
 }
 
@@ -175,10 +183,11 @@ function lightPad(selector, color, audioClip) {
 }
 
 function flashPads() {
+    // setTimeout(() => lightPad('greenPad', 'lightgreen', audioGreen), 100);
     lightPad('greenPad', 'lightgreen', audioGreen);
-    setTimeout(lightPad('redPad', 'tomato', audioRed), 1000);
-    setTimeout(lightPad('yellowPad', 'yellow', audioYellow), 4000);
-    setTimeout(lightPad('bluePad', 'lightskyblue', audioBlue), 7000);
+    lightPad('redPad', 'tomato', audioRed);
+    lightPad('yellowPad', 'yellow', audioYellow);
+    lightPad('bluePad', 'lightskyblue', audioBlue);
 }
 
 function clearPads() {
@@ -194,6 +203,7 @@ function init() {
         compOrder.push(Math.floor(Math.random() * 4) + 1);
     }
     round = 1;
+    countScreen.innerHTML = '1';
     win = false;
     console.log('Computer Order: ', compOrder);
 }
@@ -203,5 +213,6 @@ function reset() {
     playerOrder = [];
     flashNumber = 0;
     compTurn = true;
+    countScreen.innerHTML = round;
     intervalId = setInterval(gameRound, 800);
 }
