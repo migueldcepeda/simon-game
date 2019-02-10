@@ -18,9 +18,14 @@ const redPad = document.querySelector('.pads__top-right');
 const yellowPad = document.querySelector('.pads__bottom-left');
 const bluePad = document.querySelector('.pads__bottom-right');
 
+let audioGreen = document.getElementById('greenClip');
+let audioRed = document.getElementById('redClip');
+let audioYellow = document.getElementById('yellowClip');
+let audioBlue = document.getElementById('blueClip');
+
 // controls
 const startButton = document.querySelector('.start__btn');
-const strictButton = document.getElementById('mode__btn');
+const strictButton = document.getElementById('mode__switch');
 const powerSwitch = document.getElementById('power__switch');
 const countScreen = document.querySelector('.count__screen')
 
@@ -55,7 +60,7 @@ startButton.addEventListener('click', (e) => {
 greenPad.addEventListener('click', (e) => {
     if (playerInputAllowed) {
         playerOrder.push(1);
-        lightPad('greenPad', 'lightgreen');
+        lightPad('greenPad', 'lightgreen', audioGreen);
         check();
         setTimeout(() => {
             clearPads();
@@ -66,7 +71,7 @@ greenPad.addEventListener('click', (e) => {
 redPad.addEventListener('click', (e) => {
     if (playerInputAllowed) {
         playerOrder.push(2);
-        lightPad('redPad', 'tomato');
+        lightPad('redPad', 'tomato', audioRed);
         check();
         setTimeout(() => {
             clearPads();
@@ -77,7 +82,7 @@ redPad.addEventListener('click', (e) => {
 yellowPad.addEventListener('click', (e) => {
     if (playerInputAllowed) {
         playerOrder.push(3);
-        lightPad('yellowPad', 'yellow');
+        lightPad('yellowPad', 'yellow', audioYellow);
         check();
         setTimeout(() => {
             clearPads();
@@ -88,7 +93,7 @@ yellowPad.addEventListener('click', (e) => {
 bluePad.addEventListener('click', (e) => {
     if (playerInputAllowed) {
         playerOrder.push(4);
-        lightPad('bluePad', 'lightskyblue');
+        lightPad('bluePad', 'lightskyblue', audioBlue);
         check();
         setTimeout(() => {
             clearPads();
@@ -112,16 +117,16 @@ function gameRound() {
         // console.log('Computer flashes: ', compOrder[flashNumber]);
         switch (compOrder[flashNumber]) {
             case 1:
-                lightPad('greenPad', 'lightgreen');
+                lightPad('greenPad', 'lightgreen', audioGreen);
                 break;
             case 2:
-                lightPad('redPad', 'tomato');
+                lightPad('redPad', 'tomato', audioRed);
                 break;
             case 3:
-                lightPad('yellowPad', 'yellow');
+                lightPad('yellowPad', 'yellow', audioYellow);
                 break;
             case 4:
-                lightPad('bluePad', 'lightskyblue');
+                lightPad('bluePad', 'lightskyblue', audioBlue);
         }
         flashNumber++;
         setTimeout(() => {
@@ -162,22 +167,25 @@ function check() {
     }
 }
 
-function lightPad(selector, color) {
+function lightPad(selector, color, audioClip) {
     eval(selector).style.backgroundColor = color;
+    if (audioClip !== null) {
+        audioClip.play();
+    }
 }
 
 function flashPads() {
-    lightPad('greenPad', 'lightgreen');
-    lightPad('redPad', 'tomato');
-    lightPad('yellowPad', 'yellow');
-    lightPad('bluePad', 'lightskyblue');
+    lightPad('greenPad', 'lightgreen', audioGreen);
+    setTimeout(lightPad('redPad', 'tomato', audioRed), 1000);
+    setTimeout(lightPad('yellowPad', 'yellow', audioYellow), 4000);
+    setTimeout(lightPad('bluePad', 'lightskyblue', audioBlue), 7000);
 }
 
 function clearPads() {
-    lightPad('greenPad', 'darkgreen');
-    lightPad('redPad', 'darkred');
-    lightPad('yellowPad', 'goldenrod');
-    lightPad('bluePad', 'darkblue');
+    lightPad('greenPad', 'darkgreen', null);
+    lightPad('redPad', 'darkred', null);
+    lightPad('yellowPad', 'goldenrod', null);
+    lightPad('bluePad', 'darkblue', null);
 }
 
 function init() {

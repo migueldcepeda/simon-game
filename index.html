@@ -5,8 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="./simon.css">
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 
         <title>Simon Game</title>
+
+        <audio id="greenClip" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+        <audio id="redClip" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+        <audio id="yellowClip" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+        <audio id="blueClip" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
     </head>
     <body>
         <div class="outer-board">
@@ -19,14 +25,16 @@
 
             <div class="inner-board">
                 <div class="title">NOWIS</div>
-                
+
                 <div class="start">
                     <button class="start__btn"></button>
                     <div class="start__label">Start</div>
                 </div>
 
                 <div class="count">
-                    <div class="count__screen"></div>
+                    <div class="count__screen">
+                        <span class="round">-</span>
+                    </div>
                     <div class="count__label">Count</div>
                 </div>
 
