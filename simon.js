@@ -151,17 +151,18 @@ function check() {
     // check if current guess is incorrect
     if (playerOrder[currGuess] !== compOrder[currGuess]){
         countScreen.innerHTML = "NO!";
+        flashPads();
         setTimeout(() => {
-            flashPads();
             strict ? runGame() : reset();
-        }, 500);
+        }, 800);
     }
     // if current guess is correct and end of game, YOU WIN!
     else if (playerOrder.length == compOrder.length) {
         countScreen.innerHTML = 'WIN!'
         win = true;
         playerInputAllowed = false;
-        setTimeout(() => flashPads(), 500);
+        flashPads();
+        // setTimeout(() => flashPads(), 500);
 
     }
     // if current guess is correct, not end of game, and last guess of round
