@@ -158,7 +158,7 @@ function check() {
     }
     // if current guess is correct and end of game, YOU WIN!
     else if (playerOrder.length == compOrder.length) {
-        countScreen.innerHTML = 'WIN!'
+        countScreen.innerHTML = 'FTW!'
         win = true;
         playerInputAllowed = false;
         flashPads();

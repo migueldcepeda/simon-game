@@ -13,6 +13,12 @@ html, body {
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(wooden-background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 /********/
 /* Pads *
 /********/
@@ -84,7 +90,6 @@ html, body {
 /* Controls *
 /************/
 .outer-board {
-    /* background: gray; */
     width: 600px;
     height: 600px;
     border-radius: 50%;
@@ -99,13 +104,22 @@ html, body {
     height: 300px;
     border-radius: 50%;
     border: solid 20px #36383F;
-    background: white;
+    background: #F4F1F5;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+.label {
+    font-family: Lato;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
 .title {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 28px;
     position: absolute;
     top: 25%;
     left: 50%;
@@ -142,7 +156,7 @@ html, body {
 .start__label {
     position: absolute;
     top: 35px;
-    left: -6px;
+    left: -8px;
 }
 
 .count {
@@ -157,7 +171,7 @@ html, body {
     position: relative;
     background-color: #430710;
     border: solid 2px #000;
-    width: 50px;
+    width: 60px;
     height: 40px;
     margin: 0 auto;
     border-radius: 5px;
@@ -166,7 +180,7 @@ html, body {
 .count__label {
     position: absolute;
     top: 47px;
-    left: 5px;
+    left: 8px;
 }
 
 .round {
@@ -214,8 +228,8 @@ html, body {
 
 .power__label {
     display: block;
-    margin-top: 20px;
-    transform: translateX(-3px);
+    margin-top: 24px;
+    transform: translateX(-4px);
 }
 
 /* #power__switch {
