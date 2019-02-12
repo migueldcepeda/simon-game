@@ -17,6 +17,8 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(wooden-background.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 /********/
@@ -124,6 +126,7 @@ body {
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-transform: uppercase;
 }
 
 .start {
