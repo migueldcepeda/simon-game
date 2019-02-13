@@ -200,7 +200,7 @@ function clearPads() {
 
 function init() {
     compOrder = [];
-    for (let i = 0; i < 3; i++){
+    for (let i = 0; i < 15; i++){
         compOrder.push(Math.floor(Math.random() * 4) + 1);
     }
     round = 1;
